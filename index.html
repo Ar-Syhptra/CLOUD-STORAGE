@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded shadow-md w-full max-w-sm">
+        <h1 class="text-2xl font-bold mb-6 text-center">Login</h1>
+        <div id="error" class="mb-4 text-red-500 hidden"></div>
+        <form id="loginForm">
+            <div class="mb-4">
+                <label class="block text-gray-700">Username</label>
+                <input type="text" id="username" class="mt-1 block w-full p-2 border border-gray-300 rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Password</label>
+                <input type="password" id="password" class="mt-1 block w-full p-2 border border-gray-300 rounded" required>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error');
+
+            // Cek username dan password
+            if (username === 'Arkansyahputra' && password === 'admin123') {
+                // Simpan status login di Local Storage
+                localStorage.setItem('loggedin', 'true');
+                // Arahkan ke dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                errorDiv.textContent = "Username atau password salah!";
+                errorDiv.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
