@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="bg-gray-200 p-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Cloud Storage Dashboard</h1>
+                <button id="logout" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    Logout
+                </button>
+            </div>
+
+            <div class="p-6">
+                <h2 class="text-xl font-semibold mb-4">User  Management</h2>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full table-auto">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-4 text-left">Username</th>
+                                <th class="py-3 px-4 text-left">Password</th>
+                                <th class="py-3 px-4 text-center">Status</th>
+                                <th class="py-3 px-4 text-center">Cloud Server</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-4 text-left whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <span class="font-medium">Arkansyahputra</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4 text-left">
+                                    <span>admin123</span>
+                                </td>
+                                <td class="py-3 px-4 text-center">
+                                    <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                                </td>
+                                <td class="py-3 px-4 text-center">
+                                    <a href="https://t.me/+QVGmYuk7aUxmOTc1" target="_blank" class="text-blue-500 hover:underline">
+                                        Telegram
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-xl font-semibold mb-4">Cloud Storage</h2>
+                <a href="https://t.me/+QVGmYuk7aUxmOTc1" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 inline-flex items-center">
+                    Go to Telegram
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cek status login
+        if (!localStorage.getItem('loggedin')) {
+            window.location.href = 'index.html';
+        }
+
+        // Logout
+        document.getElementById('logout').addEventListener('click', function() {
+            localStorage.removeItem('loggedin');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
